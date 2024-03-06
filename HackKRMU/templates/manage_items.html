@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Items</title>
+</head>
+<body>
+    <h2>Add New Item</h2>
+    <form action="/items" method="post">
+        <label for="name">Item Name:</label><br>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="purchase_date">Purchase Date:</label><br>
+        <input type="date" id="purchase_date" name="purchase_date" required><br>
+
+        <label for="serial_number">Serial Number:</label><br>
+        <input type="text" id="serial_number" name="serial_number" required><br>
+
+        <label for="category">Category:</label><br>
+        <input type="text" id="category" name="category" required><br>
+
+        <label for="brand">Brand:</label><br>
+        <input type="text" id="brand" name="brand" required><br>
+
+        <label for="model">Model:</label><br>
+        <input type="text" id="model" name="model" required><br>
+
+        <label for="warranty_period">Warranty Period:</label><br>
+        <input type="text" id="warranty_period" name="warranty_period"><br>
+
+        <label for="insurance_details">Insurance Details:</label><br>
+        <input type="text" id="insurance_details" name="insurance_details"><br>
+
+        <label for="document_upload">Document Upload:</label><br>
+        <input type="file" id="document_upload" name="document_upload"><br>
+
+        <label for="purchased_by">Purchased By:</label><br>
+        <select id="purchased_by" name="purchased_by">
+            <option value="cash">Cash</option>
+            <option value="credit_card">Credit Card</option>
+            <option value="debit_card">Debit Card</option>
+        </select><br>
+
+        <label for="emi_period">EMI Period:</label><br>
+        <input type="text" id="emi_period" name="emi_period"><br>
+
+        <label for="additional_info">Additional Information:</label><br>
+        <textarea id="additional_info" name="additional_info"></textarea><br><br>
+
+        <input type="submit" value="Add Item">
+    </form>
+    <br>
+
+    <h2>All Items</h2>
+    <ul>
+    {% for item in items %}
+        <li>{{ item.name }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
